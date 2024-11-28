@@ -7,8 +7,8 @@ from . import views
 # index - ф-ция из views.py которая будет выполняться при
 # переходе на главную страницу проекта
 urlpatterns = [
-    path('', views.index),
-    path('new', views.new),
+    path('', views.index, name='home'),
+    path('new', views.new, name='page2'),
     path('data', views.data),
     path('test', views.test)
 ]
