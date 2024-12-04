@@ -20,6 +20,15 @@ def new(request):
     # return HttpResponse("<h1>Это вторая страница моего проекта на Django</h1>")
     return render(request, 'main/new.html')
 
+def page3(request):
+    #путь внутри папки templates:
+    return render(request, 'main/page3.html')
+
+
+def page4(request):
+    #путь внутри папки templates:
+    return render(request, 'main/page4.html')
+
 
 def data(request):
     return HttpResponse("<h1>Это вторая страница с интересной информацией</h1>")
