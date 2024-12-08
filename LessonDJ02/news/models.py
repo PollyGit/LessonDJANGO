@@ -5,12 +5,11 @@ from django.db import models
 # Создать класс для работы с БД
 # models.Model - название класса от кот-го наследуется
 class News_post(models.Model):
-    title = models.CharField('Название новости', max_length=50)
+    title = models.CharField('Название новости', max_length=70)
     short_description = models.CharField('Краткое описание новости', max_length=200)
     text = models.TextField('Новость')
     pub_date = models.DateTimeField('Дата публикации')
-    #user_post = models.CharField('Чья новость', max_length=50)
-    #data = models.DateTimeField('Дата')
+    username = models.CharField('Чья новость', max_length=50, blank=True, default='x')
 
 
     #прописываем специальный метод внутри класса,
@@ -24,3 +23,10 @@ class News_post(models.Model):
     class Meta:
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
+
+# class User(models.Model):
+#     # Столбцы в БД
+#     #id = db.Column(db.Integer, primary_key=True)
+#     username = models.CharField('Имя пользователя', max_length=50)
+#     email = models.CharField('email пользователя', max_length=50)
+#     password = models.CharField('Пароль пользовтеля', max_length=50)
