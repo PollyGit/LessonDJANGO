@@ -5,11 +5,12 @@ from django.db import models
 # Создать класс для работы с БД
 # models.Model - название класса от кот-го наследуется
 class News_post(models.Model):
-    title = models.CharField('Название новости', max_length=70)
+    title = models.CharField('Название новости', max_length=50)
     short_description = models.CharField('Краткое описание новости', max_length=200)
     text = models.TextField('Новость')
     pub_date = models.DateTimeField('Дата публикации')
     #user_post = models.CharField('Чья новость', max_length=50)
+    #data = models.DateTimeField('Дата')
 
 
     #прописываем специальный метод внутри класса,
