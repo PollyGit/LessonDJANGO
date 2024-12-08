@@ -23,6 +23,9 @@ from django.conf.urls.static import static
 # admin.site.urls - панель администратора
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('main.urls')) #вызов главной страницы ''
+    path('', include('main.urls')), #вызов главной страницы ''
     #создать файл urls в приложении main
+    path('news/', include('news.urls'))
+    #все страницы, адрес которых начинается с news/,
+    # будут обрабатываться файлом urls из папки news
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
