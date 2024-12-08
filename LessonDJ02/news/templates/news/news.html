@@ -7,4 +7,16 @@
 {% block content%}
 <!--    {% include 'main/nav.html'%}-->
 <h1>Новостная страница</h1>
+
+<!--настраиваем выведение всех новостей через цикл
+вместо {{news}}-->
+{% for new in news %}
+	<div>
+		<h3> {{ new.title }} </h3>
+		<p> {{ new.short_description }} </p>
+	</div>
+{% endfor %}
+
+<!--{{news}}-->
+
 {% endblock %}
