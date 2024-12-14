@@ -1,0 +1,61 @@
+<!--прописываем подключение css-файла-->
+{% load static %}
+<! DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Подключаем стили Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Подключаем собственные стили (если надо) -->
+<!--    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">-->
+
+    {% block title %}
+    <title>Киносайт</title>
+    {% endblock %}
+</head>
+<body>
+
+
+
+
+<div class="d-flex">
+    <!-- Боковая панель -->
+
+    <!--добавляем блоки для изображений,указываем путь из папки static -->
+    <aside class="bg-light p-3" style="min-width: 200px;">
+<!--        <img src="{% static 'main/img/Cat.jpg' %}" alt="котик рыжий" class="img-fluid mb-3">-->
+        <!--    Добавляем тег, который будет задавать название сайта-->
+        <span class="h5">Киносайт</span>
+        <!--    и создаём навигационное меню-->
+        <ul class="nav flex-column mt-3">
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'home' %}">Главная</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'page2' %}">Добавить фильм</a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Основное содержимое -->
+    <main class="flex-fill p-4">
+        {% block content %}
+        <!-- Основное содержимое страницы -->
+        {% endblock %}
+    </main>
+</div>
+
+
+<!--Подключение footer.html-->
+{% include 'films/footer.html'%}
+
+<!-- Подключаем скрипты Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

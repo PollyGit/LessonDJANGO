@@ -1,0 +1,43 @@
+{% extends 'films/layout.html' %}
+
+{% block title %}
+<title>Первая страница на django</title>
+{% endblock %}
+
+{% block content%}
+{% comment %}
+
+{% endcomment %}
+
+
+<h1>Добро пожаловать на Киносайт!</h1>
+
+<!--настраиваем выведение всех новостей через цикл-->
+	{% if films %}
+		{% for film in films %}
+
+			<div class="card" style="width: 32rem;">
+			  <div class="card-body">
+					<h3 class="card-title">{{ film.title }}</h3>
+					<p class="card-text">{{ film.short_description }}</p>
+					<a href="#" class="btn btn-primary">Подробнее</a>
+			  </div>
+			</div>
+		{% endfor %}
+	{% else %}
+			<h4>Фильмов ещё нет.</h4>
+	{% endif %}
+
+	{% if films %}
+		{% for film in films %}
+			<div>
+				<h3> {{ film.title }} </h3>
+				<p> {{ film.short_description }} </p>
+				<p> {{ film.text }} </p>
+			</div>
+		{% endfor %}
+	{% else %}
+			<h4>Фильмов ещё нет.</h4>
+	{% endif %}
+
+{% endblock %}
