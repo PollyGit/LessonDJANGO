@@ -20,7 +20,7 @@
 			  <div class="card-body">
 					<h3 class="card-title">{{ film.title }}</h3>
 					<p class="card-text">{{ film.short_description }}</p>
-					<a href="#" class="btn btn-primary">Подробнее</a>
+				  	<p class="card-text">Комментарий к фильму: {{ film.text }}</p>
 			  </div>
 			</div>
 		{% endfor %}
@@ -28,16 +28,19 @@
 			<h4>Фильмов ещё нет.</h4>
 	{% endif %}
 
+
+{% comment %}
 	{% if films %}
 		{% for film in films %}
 			<div>
 				<h3> {{ film.title }} </h3>
 				<p> {{ film.short_description }} </p>
-				<p> {{ film.text }} </p>
+				<p> Отзыв: {{ film.text }} </p>
 			</div>
 		{% endfor %}
 	{% else %}
 			<h4>Фильмов ещё нет.</h4>
 	{% endif %}
+{% endcomment %}
 
 {% endblock %}
