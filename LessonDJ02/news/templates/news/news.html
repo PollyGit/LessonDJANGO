@@ -6,20 +6,38 @@
 
 {% block content%}
 <!--    {% include 'main/nav.html'%}-->
-<h1>Новостная страница</h1>
 
+<h1>Новостная страница</h1>
 <!--настраиваем выведение всех новостей через цикл
 вместо {{news}}-->
-{% for new in news %}
-	<div>
-		<h3> {{ new.title }} </h3>
-		<p> {{ new.short_description }} </p>
-		<p> {{ new.text }} </p>
-		<p> {{ new.pub_date }} </p>
-		<p> Новость выложил {{ new.username }} </p>
-	</div>
-{% endfor %}
+	{% if news %}
+		{% for new in news %}
 
-<!--{{news}}-->
+			<div class="card" style="width: 32rem;">
+			  <div class="card-body">
+					<h3 class="card-title">{{ new.title }}</h3>
+					<p class="card-text">{{ new.short_description }}</p>
+					<a href="#" class="btn btn-primary">Подробнее</a>
+			  </div>
+			</div>
+		{% endfor %}
+	{% else %}
+			<h4>Новостей ещё нет.</h4>
+	{% endif %}
+
+	{% if news %}
+		{% for new in news %}
+			<div>
+				<h3> {{ new.title }} </h3>
+				<p> {{ new.short_description }} </p>
+				<p> {{ new.text }} </p>
+				<p> {{ new.pub_date }} </p>
+				<p> Новость выложил {{ new.username }} </p>
+			</div>
+		{% endfor %}
+	{% else %}
+			<h4>Новостей ещё нет.</h4>
+	{% endif %}
+	<!--{{news}}-->
 
 {% endblock %}

@@ -24,9 +24,4 @@ class News_post(models.Model):
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
 
-# class User(models.Model):
-#     # Столбцы в БД
-#     #id = db.Column(db.Integer, primary_key=True)
-#     username = models.CharField('Имя пользователя', max_length=50)
-#     email = models.CharField('email пользователя', max_length=50)
-#     password = models.CharField('Пароль пользовтеля', max_length=50)
+

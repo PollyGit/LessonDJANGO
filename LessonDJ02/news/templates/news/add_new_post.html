@@ -1,0 +1,39 @@
+{% extends 'main/layoute.html' %}
+
+{% block title %}
+	<title>Страница для добавления новостей</title>
+{% endblock %}
+
+{% block content %}
+<h1>Страница для добавления новостей</h1>
+<!--Добавляем словарь из LessonDJ02/news/views.py-->
+<!--{{ form }}-->
+    <div class="container mt-5">
+
+        <form method="post">
+			{% csrf_token %}
+            <div class="form-group">
+<!--                <input type="text" class="form-control" placeholder="Заголовок новости">-->
+                {{ form.title }}
+            </div>
+            <div class="form-group">
+<!--                <input type="text" class="form-control" placeholder="Краткое описание новости">-->
+                {{ form.short_description }}
+            </div>
+            <div class="form-group">
+<!--                <textarea class="form-control" placeholder="Содержание новости" rows="4"></textarea>-->
+                {{ form.text }}
+            </div>
+            <div class="form-group">
+<!--                <input type="date" class="form-control">-->
+                {{ form.pub_date }}
+            </div>
+<!--            <div class="form-group">-->
+<!--                <input type="time" class="form-control">-->
+<!--            </div>-->
+            <button type="submit" class="btn btn-primary">Добавить новость</button>
+        </form>
+        <p>{{error}}</p>
+    </div>
+
+{% endblock %}
